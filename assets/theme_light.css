@@ -20,13 +20,20 @@ blockquote {
 }
 
 code {
-    background-color: #f0f2f5;
-    color: #24292e;
+    background-color: #f6f8fa;
+    border-color: #d0d7de;
+    color: #cf222e;
 }
 
 pre {
     background-color: #f6f8fa;
     color: #24292e;
+}
+
+pre code {
+    background-color: transparent;
+    border-color: transparent;
+    color: inherit;
 }
 
 .code-container {

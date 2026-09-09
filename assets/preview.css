@@ -92,18 +92,29 @@ blockquote {
 }
 
 code {
-    font-family: Consolas, "Courier New", monospace;
+    font-family: Consolas, "Cascadia Code", "Fira Code", "Courier New", monospace;
     font-size: 12px;
-    padding: 1px 4px;
+    padding: 2px 5px;
     border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    white-space: pre-wrap;
 }
 
 pre {
-    font-family: Consolas, "Courier New", monospace;
+    font-family: Consolas, "Cascadia Code", "Fira Code", "Courier New", monospace;
     font-size: 12px;
-    line-height: 1.45;
-    padding: 10px 12px;
+    line-height: 1.5;
+    padding: 10px 14px;
     margin: 0;
+    white-space: pre-wrap;
+}
+
+pre code {
+    padding: 0;
+    border-width: 0;
+    background-color: transparent;
+    font-size: 12px;
 }
 
 /* Tables */
