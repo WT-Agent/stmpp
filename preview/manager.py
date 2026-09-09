@@ -18,6 +18,7 @@ class PreviewSession:
         self.active_view_id = None
         self.last_content = ""
         self.render_generation = 0
+        self.menu_expanded = False
 
 
 class PreviewManager:
@@ -149,6 +150,18 @@ class PreviewManager:
         else:
             self.open_preview(view, mode="side")
 
+    def toggle_menu(self, view: sublime.View = None):
+        window = (view.window() if view else None) or sublime.active_window()
+        if not window:
+            return
+        session = self.get_session(window.id())
+        if not session:
+            return
+        session.menu_expanded = not session.menu_expanded
+        active_v = view or window.active_view()
+        if active_v and self.is_markdown_view(active_v):
+            self.render_view(active_v, force=True)
+
     def schedule_render(self, view: sublime.View):
         if not view or not view.is_valid():
             return
@@ -205,6 +218,7 @@ class PreviewManager:
         session.active_view_id = view.id()
         session.last_content = content
         settings = self._load_settings()
+        settings["menu_expanded"] = getattr(session, "menu_expanded", False)
 
         file_name = view.file_name()
         base_dir = os.path.dirname(file_name) if file_name else ""

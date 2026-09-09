@@ -62,19 +62,21 @@ class MarkdownEngine:
 
         # 4. Assemble final document with line alignment
         blocks_html = "\n".join(html_blocks)
+        menu_expanded = self.options.get("menu_expanded", False)
         if toc_pos == "right" and has_headings:
-            # Render compact right-aligned menu bar at top right, keeping row 1 aligned
+            expand_icon = "▲" if menu_expanded else "▼"
+            expand_title = "点击折叠大纲目录" if menu_expanded else "点击展开大纲目录"
             top_menu = (
                 '<div class="top-menu-bar" style="text-align: right;">'
                 '<span class="top-menu-actions">'
-                '<a class="top-menu-link" href="subl:smp_open_toc">[Outline 目录]</a> '
-                '<a class="top-menu-link" href="subl:smp_copy_all">[复制全文]</a> '
-                '<a class="top-menu-link" href="subl:smp_export_html">[导出 HTML]</a>'
+                f'<a class="top-menu-link" href="subl:smp_toggle_menu" title="{expand_title}">[Outline 目录 {expand_icon}]</a> '
+                '<a class="top-menu-link" href="subl:smp_copy_all" title="一键复制全文 Markdown">[复制全文]</a> '
+                '<a class="top-menu-link" href="subl:smp_export_html" title="导出独立 HTML 文件">[导出 HTML]</a>'
                 '</span>'
                 '</div>'
             )
-            # Full TOC outline is placed at the end so it doesn't push down the document
-            content_body = f"{top_menu}\n{blocks_html}\n{toc_html}"
+            dropdown_html = f'<div class="menu-dropdown-container">{toc_html}</div>\n' if menu_expanded else ""
+            content_body = f"{top_menu}\n{dropdown_html}{blocks_html}"
         elif toc_pos == "top" and toc_html:
             content_body = f"{toc_html}\n{blocks_html}"
         elif toc_pos == "bottom" and toc_html:

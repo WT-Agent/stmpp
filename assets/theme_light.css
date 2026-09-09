@@ -103,7 +103,7 @@ a {
     border-color: transparent;
 }
 
-.toc-container {
+.toc-container, .menu-dropdown-container {
     border-color: #e1e4e8;
     background-color: #f6f8fa;
 }

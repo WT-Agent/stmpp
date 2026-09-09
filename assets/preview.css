@@ -299,3 +299,12 @@ img {
     text-decoration: none;
     margin-left: 10px;
 }
+
+.menu-dropdown-container {
+    margin-top: 0;
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 6px;
+}

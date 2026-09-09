@@ -2,7 +2,14 @@
 
 from .open_preview import SmpOpenPreviewCommand
 from .close_preview import SmpClosePreviewCommand
-from .refresh_preview import SmpRefreshPreviewCommand
+from .refresh_preview import (
+    SmpRefreshPreviewCommand,
+    SmpCopyAllCommand,
+    SmpCopyTextCommand,
+    SmpCopyCodeCommand,
+    SmpCopyTableCommand,
+    SmpToggleMenuCommand,
+)
 from .toggle_preview import SmpTogglePreviewCommand
 from .export_html import SmpExportHtmlCommand
 from .open_toc import SmpOpenTocCommand
@@ -11,6 +18,11 @@ __all__ = [
     "SmpOpenPreviewCommand",
     "SmpClosePreviewCommand",
     "SmpRefreshPreviewCommand",
+    "SmpCopyAllCommand",
+    "SmpCopyTextCommand",
+    "SmpCopyCodeCommand",
+    "SmpCopyTableCommand",
+    "SmpToggleMenuCommand",
     "SmpTogglePreviewCommand",
     "SmpExportHtmlCommand",
     "SmpOpenTocCommand",

@@ -96,7 +96,15 @@ class TestMarkdownEngine(unittest.TestCase):
         self.assertIn('<h1 id="heading-1" data-line="1">Heading 1</h1>', html_out)
         self.assertIn('<h2 id="sub-heading" data-line="3">Sub Heading</h2>', html_out)
         self.assertIn('class="top-menu-bar"', html_out)
-        self.assertIn('smp_open_toc', html_out)
+        self.assertIn('smp_toggle_menu', html_out)
+        self.assertNotIn('class="menu-dropdown-container"', html_out)
+
+    def test_menu_expanded(self):
+        engine_exp = MarkdownEngine(options={"toc": True, "toc_position": "right", "menu_expanded": True})
+        md = "# Heading 1\n\n## Sub Heading\n\nContent here."
+        html_out = engine_exp.render(md)
+        self.assertIn('class="top-menu-bar"', html_out)
+        self.assertIn('class="menu-dropdown-container"', html_out)
         self.assertIn('<div class="toc-container">', html_out)
         self.assertIn('href="#heading-1"', html_out)
         self.assertIn('href="#sub-heading"', html_out)
