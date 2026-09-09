@@ -68,6 +68,7 @@ blockquote {
 .code-container {
     margin-top: 12px;
     margin-bottom: 16px;
+    margin-left: 24px;
     border-radius: 6px;
     border-width: 1px;
     border-style: solid;
