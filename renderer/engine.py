@@ -54,11 +54,30 @@ class MarkdownEngine:
 
         # 3. Build Table of Contents if enabled
         toc_html = ""
-        if self.options.get("toc", True) and len(self.headings) > 1:
+        toc_pos = self.options.get("toc_position", "right")
+        if self.options.get("toc", True) and len(self.headings) > 1 and toc_pos != "none":
             toc_html = self._build_toc_html()
 
-        # 4. Assemble final document
-        content_body = toc_html + "\n".join(html_blocks)
+        # 4. Assemble final document with line alignment
+        blocks_html = "\n".join(html_blocks)
+        if toc_html and toc_pos == "right":
+            content_body = (
+                '<table class="preview-layout">'
+                '<tr>'
+                '<td class="preview-content-col">'
+                f'{blocks_html}'
+                '</td>'
+                '<td class="preview-toc-col">'
+                f'{toc_html}'
+                '</td>'
+                '</tr>'
+                '</table>'
+            )
+        elif toc_html and toc_pos == "top":
+            content_body = f"{toc_html}\n{blocks_html}"
+        else:
+            content_body = blocks_html
+
         return self._wrap_document(content_body, custom_css)
 
     def _strip_front_matter(self, text: str) -> str:
@@ -383,7 +402,7 @@ class MarkdownEngine:
     def _build_toc_html(self) -> str:
         items = []
         for h in self.headings:
-            indent = (h.level - 1) * 16
+            indent = (h.level - 1) * 12
             items.append(
                 f'<li style="margin-left: {indent}px;">'
                 f'<a href="#{h.anchor}">{html.escape(h.title)}</a>'
@@ -391,7 +410,12 @@ class MarkdownEngine:
             )
         return (
             '<div class="toc-container">'
-            '<div class="toc-title">Table of Contents</div>'
+            '<div class="toc-header-bar">'
+            '<span class="toc-title">Outline</span>'
+            '<span class="toc-actions">'
+            '<a class="toc-action-link" href="subl:smp_copy_all">[Copy]</a>'
+            '</span>'
+            '</div>'
             f'<ul class="toc-list">{"".join(items)}</ul>'
             '</div>'
         )

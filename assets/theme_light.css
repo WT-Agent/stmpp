@@ -99,9 +99,25 @@ a {
     color: #0366d6;
 }
 
+.preview-layout, .preview-content-col, .preview-toc-col {
+    border-color: transparent;
+}
+
 .toc-container {
     border-color: #e1e4e8;
     background-color: #f6f8fa;
+}
+
+.toc-header-bar {
+    border-bottom-color: #e1e4e8;
+}
+
+.toc-title {
+    color: #57606a;
+}
+
+.toc-action-link {
+    color: #0366d6;
 }
 
 /* Syntax Highlighting Light */

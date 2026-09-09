@@ -96,8 +96,18 @@ class TestMarkdownEngine(unittest.TestCase):
         self.assertIn('<h1 id="heading-1" data-line="1">Heading 1</h1>', html_out)
         self.assertIn('<h2 id="sub-heading" data-line="3">Sub Heading</h2>', html_out)
         self.assertIn('<div class="toc-container">', html_out)
+        self.assertIn('class="preview-layout"', html_out)
+        self.assertIn('class="preview-content-col"', html_out)
+        self.assertIn('class="preview-toc-col"', html_out)
         self.assertIn('href="#heading-1"', html_out)
         self.assertIn('href="#sub-heading"', html_out)
+
+    def test_toc_position_top(self):
+        engine_top = MarkdownEngine(options={"toc": True, "toc_position": "top"})
+        md = "# Heading 1\n\n## Sub Heading\n\nContent here."
+        html_out = engine_top.render(md)
+        self.assertNotIn('class="preview-layout"', html_out)
+        self.assertIn('<div class="toc-container">', html_out)
 
     def test_gfm_table(self):
         # 2 columns table renders as <table>

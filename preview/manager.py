@@ -260,6 +260,8 @@ class PreviewManager:
             "code_line_numbers": False,
             "copy_button": True,
             "toc": True,
+            "toc_position": "right",
+            "table_mode": "auto",
             "custom_css": "",
             "custom_css_file": "",
         }

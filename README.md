@@ -26,8 +26,7 @@
 ## 快捷键
 
 | 操作 | Windows / Linux | macOS |
-| :--- | :--- | :--- |
-
+| :--- | :--- | :--- | 
 | **开关预览 (Toggle Preview)** | `Ctrl + Shift + M` | `Super + Shift + M` |
 | **强制刷新 (Refresh Preview)** | `Ctrl + Shift + Alt + M` | `Super + Shift + Alt + M` |
 
@@ -65,7 +64,10 @@
     "allow_remote_resources": false,
 
     "code_line_numbers": false,
+    "copy_button": true,
     "toc": true,
+    "toc_position": "right",
+    "table_mode": "auto",
 
     "custom_css": "",
     "custom_css_file": ""
@@ -78,15 +80,15 @@
 
 ```text
 stmpp/
-├── plugin.py                     # 插件主入口与 EventListener
-├── commands/                     # 命令集实现 (Open, Close, Refresh, Toggle, Export)
-├── renderer/                     # 纯 Python GFM 解析、代码高亮、路径解析与安全过滤
-├── preview/                      # HtmlSheet 视图管理、双栏布局与滚动锚点同步
-├── assets/                       # 基础与主题样式表 (preview.css, theme_light.css, theme_dark.css)
-├── settings/                     # 默认配置定义
-├── tests/                        # 单元测试与基准性能套件
-├── Default.sublime-commands      # 命令面板映射
-├── Default (Windows).sublime-keymap # 快捷键映射
-├── Default (OSX).sublime-keymap     # macOS 快捷键映射
-└── Main.sublime-menu             # 菜单栏注册项
+  ├── plugin.py                     # 插件主入口与 EventListener
+  ├── commands/                     # 命令集实现 (Open, Close, Refresh, Toggle, Export)
+  ├── renderer/                     # 纯 Python GFM 解析、代码高亮、路径解析与安全过滤
+  ├── preview/                      # HtmlSheet 视图管理、双栏布局与滚动锚点同步
+  ├── assets/                       # 基础与主题样式表 (preview.css, theme_light.css, theme_dark.css)
+  ├── settings/                     # 默认配置定义
+  ├── tests/                        # 单元测试与基准性能套件
+  ├── Default.sublime-commands      # 命令面板映射
+  ├── Default (Windows).sublime-keymap # 快捷键映射
+  ├── Default (OSX).sublime-keymap     # macOS 快捷键映射
+  └── Main.sublime-menu             # 菜单栏注册项
 ```
