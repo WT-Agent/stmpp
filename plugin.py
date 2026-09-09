@@ -14,6 +14,7 @@ from .commands.refresh_preview import (
 )
 from .commands.toggle_preview import SmpTogglePreviewCommand
 from .commands.export_html import SmpExportHtmlCommand
+from .commands.open_toc import SmpOpenTocCommand
 from .preview.manager import PreviewManager
 
 __all__ = [
@@ -26,6 +27,7 @@ __all__ = [
     "SmpCopyTableCommand",
     "SmpTogglePreviewCommand",
     "SmpExportHtmlCommand",
+    "SmpOpenTocCommand",
     "SmpEventListener",
 ]
 

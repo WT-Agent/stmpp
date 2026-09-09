@@ -55,26 +55,30 @@ class MarkdownEngine:
         # 3. Build Table of Contents if enabled
         toc_html = ""
         toc_pos = self.options.get("toc_position", "right")
-        if self.options.get("toc", True) and len(self.headings) > 1 and toc_pos != "none":
+        has_headings = len(self.headings) > 1
+
+        if self.options.get("toc", True) and has_headings and toc_pos != "none":
             toc_html = self._build_toc_html()
 
         # 4. Assemble final document with line alignment
         blocks_html = "\n".join(html_blocks)
-        if toc_html and toc_pos == "right":
-            content_body = (
-                '<table class="preview-layout">'
-                '<tr>'
-                '<td class="preview-content-col">'
-                f'{blocks_html}'
-                '</td>'
-                '<td class="preview-toc-col">'
-                f'{toc_html}'
-                '</td>'
-                '</tr>'
-                '</table>'
+        if toc_pos == "right" and has_headings:
+            # Render compact right-aligned menu bar at top right, keeping row 1 aligned
+            top_menu = (
+                '<div class="top-menu-bar" style="text-align: right;">'
+                '<span class="top-menu-actions">'
+                '<a class="top-menu-link" href="subl:smp_open_toc">[Outline 目录]</a> '
+                '<a class="top-menu-link" href="subl:smp_copy_all">[复制全文]</a> '
+                '<a class="top-menu-link" href="subl:smp_export_html">[导出 HTML]</a>'
+                '</span>'
+                '</div>'
             )
-        elif toc_html and toc_pos == "top":
+            # Full TOC outline is placed at the end so it doesn't push down the document
+            content_body = f"{top_menu}\n{blocks_html}\n{toc_html}"
+        elif toc_pos == "top" and toc_html:
             content_body = f"{toc_html}\n{blocks_html}"
+        elif toc_pos == "bottom" and toc_html:
+            content_body = f"{blocks_html}\n{toc_html}"
         else:
             content_body = blocks_html
 

@@ -22,6 +22,10 @@
         "command": "smp_close_preview"
     },
     {
+        "caption": "Markdown Preview: Open TOC",
+        "command": "smp_open_toc"
+    },
+    {
         "caption": "Markdown Preview: Export HTML",
         "command": "smp_export_html"
     }

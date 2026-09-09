@@ -220,7 +220,10 @@ class PreviewManager:
         try:
             session.sheet.set_contents(html_out)
         except Exception as e:
-            print(f"[SublimeMarkdownPreview] Render error: {e}")
+            import traceback
+            err_msg = f"[SublimeMarkdownPreview] Render error: {e}\n{traceback.format_exc()}"
+            print(err_msg)
+            sublime.status_message(f"Markdown Preview Render Error: {e}")
 
     def on_view_activated(self, view: sublime.View):
         if not view or not view.is_valid():

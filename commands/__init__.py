@@ -5,6 +5,7 @@ from .close_preview import SmpClosePreviewCommand
 from .refresh_preview import SmpRefreshPreviewCommand
 from .toggle_preview import SmpTogglePreviewCommand
 from .export_html import SmpExportHtmlCommand
+from .open_toc import SmpOpenTocCommand
 
 __all__ = [
     "SmpOpenPreviewCommand",
@@ -12,4 +13,5 @@ __all__ = [
     "SmpRefreshPreviewCommand",
     "SmpTogglePreviewCommand",
     "SmpExportHtmlCommand",
+    "SmpOpenTocCommand",
 ]
