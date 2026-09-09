@@ -1,0 +1,95 @@
+/* Dark Theme Styles for minihtml */
+
+body {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+}
+
+h1, h2 {
+    border-bottom-color: #383838;
+}
+
+h6 {
+    color: #858585;
+}
+
+blockquote {
+    border-left-color: #4daafc;
+    background-color: #252526;
+    color: #858585;
+}
+
+code {
+    background-color: #2d2d2d;
+    color: #e06c75;
+}
+
+pre {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+}
+
+.code-container {
+    border-color: #3b4252;
+    background-color: #1e1e1e;
+}
+
+.code-header {
+    border-bottom-color: #3b4252;
+    color: #8892b0;
+    background-color: #252830;
+}
+
+.code-copy-btn {
+    color: #4daafc;
+}
+
+th, td {
+    border-color: #3b4252;
+}
+
+th {
+    background-color: #2e3440;
+    color: #eceff4;
+}
+
+tr:nth-child(even) {
+    background-color: #262a33;
+}
+
+.table-card {
+    border-color: #3b4252;
+    background-color: #1e1e1e;
+}
+
+.table-card:nth-child(even) {
+    background-color: #252830;
+}
+
+.card-label {
+    color: #8892b0;
+}
+
+hr {
+    background-color: #383838;
+}
+
+a {
+    color: #4daafc;
+}
+
+.toc-container {
+    border-color: #383838;
+    background-color: #252526;
+}
+
+/* Syntax Highlighting Dark */
+.hl-keyword { color: #c586c0; font-weight: bold; }
+.hl-string { color: #ce9178; }
+.hl-comment { color: #6a9955; font-style: italic; }
+.hl-number { color: #b5cea8; }
+.hl-function { color: #dcdcaa; }
+.hl-operator { color: #d4d4d4; }
+.hl-type { color: #4ec9b0; }
+.hl-tag { color: #569cd6; }
+.hl-attr { color: #9cdcfe; }

@@ -1,0 +1,201 @@
+/* Sublime Markdown Preview Base Styles for minihtml */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 16px 24px;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 22px;
+    padding-bottom: 6px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+h2 {
+    font-size: 18px;
+    padding-bottom: 4px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+h3 { font-size: 16px; }
+h4 { font-size: 14px; }
+h5 { font-size: 13px; }
+h6 { font-size: 12px; }
+
+/* Paragraphs & Lists */
+p {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 12px;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 4px;
+}
+
+/* Task lists */
+.task-list-item {
+    list-style-type: none;
+    margin-left: -16px;
+}
+
+/* Blockquotes */
+blockquote {
+    margin: 0 0 14px 0;
+    padding: 6px 14px;
+    border-left-width: 4px;
+    border-left-style: solid;
+}
+
+/* Code & Pre */
+.code-container {
+    margin-top: 12px;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.code-header {
+    padding: 4px 10px;
+    font-size: 11px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.code-lang {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.code-copy-btn {
+    text-decoration: none;
+    margin-left: 14px;
+    font-weight: bold;
+}
+
+code {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 12px;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+
+pre {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 12px;
+    line-height: 1.45;
+    padding: 10px 12px;
+    margin: 0;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 12px;
+    margin-bottom: 16px;
+}
+
+th, td {
+    padding: 8px 12px;
+    border-width: 1px;
+    border-style: solid;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.45;
+    font-size: 13px;
+}
+
+th {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* Card Mode for Wide Tables */
+.table-cards {
+    margin-top: 12px;
+    margin-bottom: 20px;
+}
+
+.table-card {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+}
+
+.card-row {
+    margin-bottom: 6px;
+    line-height: 1.5;
+    font-size: 13px;
+}
+
+.card-label {
+    font-weight: bold;
+    display: inline;
+    padding-right: 6px;
+}
+
+.card-value {
+    display: inline;
+}
+
+/* Horizontal Rule */
+hr {
+    height: 1px;
+    margin: 16px 0;
+    border: 0;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+}
+
+/* Table of Contents */
+.toc-container {
+    margin-bottom: 20px;
+    padding: 10px 16px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+}
+
+.toc-title {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+
+.toc-list {
+    margin: 0;
+    padding-left: 16px;
+}
+
+.toc-list li {
+    margin-bottom: 2px;
+}

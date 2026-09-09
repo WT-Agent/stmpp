@@ -1,0 +1,21 @@
+{
+    "preview_mode": "side",
+    "split_ratio": 0.5,
+
+    "auto_refresh": true,
+    "refresh_delay": 200,
+
+    "sync_scroll": true,
+    "theme": "auto",
+
+    "allow_html": true,
+    "allow_remote_resources": false,
+
+    "code_line_numbers": false,
+    "copy_button": true,
+    "toc": true,
+    "table_mode": "auto",
+
+    "custom_css": "",
+    "custom_css_file": ""
+}

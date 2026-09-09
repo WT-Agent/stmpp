@@ -1,0 +1,28 @@
+[
+    {
+        "caption": "Markdown Preview: Toggle Preview",
+        "command": "smp_toggle_preview"
+    },
+    {
+        "caption": "Markdown Preview: Open Preview to Side",
+        "command": "smp_open_preview",
+        "args": { "mode": "side" }
+    },
+    {
+        "caption": "Markdown Preview: Open Preview",
+        "command": "smp_open_preview",
+        "args": { "mode": "current" }
+    },
+    {
+        "caption": "Markdown Preview: Refresh",
+        "command": "smp_refresh_preview"
+    },
+    {
+        "caption": "Markdown Preview: Close Preview",
+        "command": "smp_close_preview"
+    },
+    {
+        "caption": "Markdown Preview: Export HTML",
+        "command": "smp_export_html"
+    }
+]
