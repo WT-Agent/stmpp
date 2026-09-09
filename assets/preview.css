@@ -107,11 +107,36 @@ pre {
 }
 
 /* Tables */
+.table-container {
+    margin-top: 14px;
+    margin-bottom: 18px;
+    border-radius: 6px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.table-header-bar {
+    padding: 6px 12px;
+    font-size: 11px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.table-title {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.table-copy-btn {
+    text-decoration: none;
+    margin-left: 14px;
+    font-weight: bold;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
-    margin-top: 12px;
-    margin-bottom: 16px;
+    margin: 0;
 }
 
 th, td {
@@ -131,8 +156,7 @@ th {
 
 /* Card Mode for Wide Tables */
 .table-cards {
-    margin-top: 12px;
-    margin-bottom: 20px;
+    padding: 10px 12px;
 }
 
 .table-card {
@@ -140,7 +164,7 @@ th {
     border-style: solid;
     border-radius: 6px;
     padding: 10px 14px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .card-row {

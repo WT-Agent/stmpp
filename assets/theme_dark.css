@@ -66,6 +66,20 @@ tr:nth-child(even) {
     background-color: #252830;
 }
 
+.table-container {
+    border-color: #3b4252;
+}
+
+.table-header-bar {
+    border-bottom-color: #3b4252;
+    background-color: #252830;
+    color: #8892b0;
+}
+
+.table-copy-btn {
+    color: #4daafc;
+}
+
 .card-label {
     color: #8892b0;
 }

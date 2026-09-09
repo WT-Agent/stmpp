@@ -104,6 +104,7 @@ class TestMarkdownEngine(unittest.TestCase):
         md = "| Name | Role |\n|---|---|\n| Alice | Admin |\n| Bob | User |"
         html_out = self.engine.render(md)
         self.assertIn("<table><tr>", html_out)
+        self.assertIn("[Copy Table]", html_out)
         self.assertIn("<th>Name</th>", html_out)
         self.assertIn("<td>Alice</td>", html_out)
 
@@ -112,6 +113,7 @@ class TestMarkdownEngine(unittest.TestCase):
         md = "| Col1 | Col2 | Col3 | Col4 |\n|---|---|---|---|\n| V1 | V2 | V3 | V4 |"
         html_out = self.engine.render(md)
         self.assertIn('class="table-cards"', html_out)
+        self.assertIn('[Copy Table]', html_out)
         self.assertIn('class="table-card"', html_out)
         self.assertIn('class="card-label">Col1:</span>', html_out)
 

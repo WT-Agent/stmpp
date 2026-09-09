@@ -57,4 +57,19 @@ class SmpCopyCodeCommand(sublime_plugin.ApplicationCommand):
             sublime.status_message("Code snippet expired or not found")
 
 
+class SmpCopyTableCommand(sublime_plugin.ApplicationCommand):
+    """Copies table content by ID from SnippetCache to clipboard."""
+
+    def run(self, id=0):
+        import sublime
+        from ..renderer.highlighter import SnippetCache
+        content = SnippetCache.get(int(id))
+        if content:
+            sublime.set_clipboard(content)
+            sublime.status_message("Table Markdown copied to clipboard")
+        else:
+            sublime.status_message("Table content expired or not found")
+
+
+
 

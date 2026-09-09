@@ -215,8 +215,22 @@ class MarkdownEngine:
             rows_data.append(row_cells)
             i += 1
 
+        # Save raw table markdown in SnippetCache for one-click copy
+        from .highlighter import SnippetCache
+        table_raw_lines = [header_line, sep_line] + [lines[idx] for idx in range(start_idx + 2, i)]
+        table_raw_md = "\n".join(table_raw_lines)
+        table_id = SnippetCache.store(table_raw_md)
+        copy_table_href = f"subl:smp_copy_table {{&quot;id&quot;: {table_id}}}"
+
         if render_cards:
-            out = ['<div class="table-cards">']
+            out = [
+                f'<div class="table-container">'
+                f'<div class="table-header-bar">'
+                f'<span class="table-title">TABLE ({len(rows_data)} rows)</span>'
+                f'<a class="table-copy-btn" href="{copy_table_href}">[Copy Table]</a>'
+                f'</div>'
+                f'<div class="table-cards">'
+            ]
             for row in rows_data:
                 out.append('<div class="table-card">')
                 for idx, cell in enumerate(row):
@@ -229,10 +243,17 @@ class MarkdownEngine:
                         f'</div>'
                     )
                 out.append('</div>')
-            out.append('</div>')
+            out.append('</div></div>')
             return "".join(out), i
 
-        out = ["<table><tr>"]
+        out = [
+            f'<div class="table-container">'
+            f'<div class="table-header-bar">'
+            f'<span class="table-title">TABLE</span>'
+            f'<a class="table-copy-btn" href="{copy_table_href}">[Copy Table]</a>'
+            f'</div>'
+            f'<table><tr>'
+        ]
         for idx, h in enumerate(headers):
             style = aligns[idx] if idx < len(aligns) else ""
             out.append(f"<th{style}>{self._parse_inlines(h)}</th>")
@@ -245,7 +266,7 @@ class MarkdownEngine:
                 out.append(f"<td{style}>{self._parse_inlines(c)}</td>")
             out.append("</tr>")
 
-        out.append("</table>")
+        out.append("</table></div>")
         return "".join(out), i
 
     def _parse_list(self, lines: List[str], start_idx: int, is_ordered: bool) -> Tuple[str, int]:

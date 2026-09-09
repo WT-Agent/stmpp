@@ -10,6 +10,7 @@ from .commands.refresh_preview import (
     SmpCopyAllCommand,
     SmpCopyTextCommand,
     SmpCopyCodeCommand,
+    SmpCopyTableCommand,
 )
 from .commands.toggle_preview import SmpTogglePreviewCommand
 from .commands.export_html import SmpExportHtmlCommand
@@ -22,6 +23,7 @@ __all__ = [
     "SmpCopyAllCommand",
     "SmpCopyTextCommand",
     "SmpCopyCodeCommand",
+    "SmpCopyTableCommand",
     "SmpTogglePreviewCommand",
     "SmpExportHtmlCommand",
     "SmpEventListener",
