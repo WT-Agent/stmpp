@@ -105,12 +105,14 @@ a {
 }
 
 /* Syntax Highlighting Light */
-.hl-keyword { color: #d73a49; font-weight: bold; }
-.hl-string { color: #032f62; }
-.hl-comment { color: #6a737d; font-style: italic; }
-.hl-number { color: #005cc5; }
-.hl-function { color: #6f42c1; }
-.hl-operator { color: #d73a49; }
-.hl-type { color: #e36209; }
-.hl-tag { color: #22863a; }
-.hl-attr { color: #6f42c1; }
+.hl-keyword, .hl-k, .hl-kd, .hl-kn, .hl-kp, .hl-kr { color: #cf222e; font-weight: bold; }
+.hl-string, .hl-s, .hl-sa, .hl-sb, .hl-sc, .hl-s1, .hl-s2 { color: #0a3069; }
+.hl-comment, .hl-c, .hl-ch, .hl-cm, .hl-c1, .hl-cs { color: #6e7781; font-style: italic; }
+.hl-number, .hl-m, .hl-mf, .hl-mh, .hl-mi, .hl-il { color: #0550ae; }
+.hl-function, .hl-nf, .hl-fm { color: #8250df; }
+.hl-operator, .hl-o, .hl-ow { color: #cf222e; }
+.hl-type, .hl-nc, .hl-kt { color: #953800; }
+.hl-tag { color: #116329; }
+.hl-attr, .hl-na { color: #8250df; }
+.hl-builtin, .hl-nb { color: #0550ae; font-weight: bold; }
+.hl-name, .hl-nv, .hl-vc, .hl-vg, .hl-vi { color: #24292e; }

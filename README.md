@@ -28,7 +28,7 @@
 | 操作 | Windows / Linux | macOS |
 | :--- | :--- | :--- |
 | **开关预览 (Toggle Preview)** | `Ctrl + Shift + M` | `Super + Shift + M` |
-| **强制刷新 (Refresh Preview)** | `Ctrl + Shift + Alt + M` | `Super + Shift + Alt + `M` |
+| **强制刷新 (Refresh Preview)** | `Ctrl + Shift + Alt + M` | `Super + Shift + Alt + M` |
 
 ---
 

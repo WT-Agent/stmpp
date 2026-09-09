@@ -104,7 +104,7 @@ code {
 pre {
     font-family: Consolas, "Cascadia Code", "Fira Code", "Courier New", monospace;
     font-size: 12px;
-    line-height: 1.5;
+    line-height: 1.4;
     padding: 10px 14px;
     margin: 0;
     white-space: pre-wrap;
@@ -155,8 +155,8 @@ th, td {
     border-width: 1px;
     border-style: solid;
     text-align: left;
-    vertical-align: top;
-    line-height: 1.45;
+    vertical-align: middle;
+    line-height: 1.4;
     font-size: 13px;
 }
 
