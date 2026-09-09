@@ -170,6 +170,8 @@ class MarkdownEngine:
             return True
         if s.startswith(">"):
             return True
+        if s.startswith("|") and s.endswith("|"):
+            return True
         if self.TASK_LIST_PATTERN.match(line) or self.UNORDERED_LIST_PATTERN.match(line) or self.ORDERED_LIST_PATTERN.match(line):
             return True
         return False
@@ -209,9 +211,18 @@ class MarkdownEngine:
 
         i = start_idx + 2
         n = len(lines)
+        # Skip any accidental empty lines between separator and first row
+        while i < n and not lines[i].strip():
+            i += 1
+
         rows_data = []
-        while i < n and "|" in lines[i] and lines[i].strip():
-            row_cells = [c.strip() for c in lines[i].strip("|").split("|")]
+        while i < n:
+            curr_line = lines[i].strip()
+            if not curr_line:
+                break
+            if "|" not in curr_line:
+                break
+            row_cells = [c.strip() for c in curr_line.strip("|").split("|")]
             rows_data.append(row_cells)
             i += 1
 
