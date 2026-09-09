@@ -71,13 +71,5 @@ class SmpCopyTableCommand(sublime_plugin.ApplicationCommand):
             sublime.status_message("Table content expired or not found")
 
 
-class SmpToggleMenuCommand(sublime_plugin.ApplicationCommand):
-    """Toggles the inline expanded outline menu in Markdown preview."""
-
-    def run(self):
-        manager = PreviewManager.get_instance()
-        manager.toggle_menu()
-
-
 
 

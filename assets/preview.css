@@ -213,98 +213,30 @@ img {
     max-width: 100%;
 }
 
-/* Multi-column layout for right-docked TOC */
-.preview-layout {
-    width: 100%;
-    border-collapse: collapse;
-    border-width: 0;
-    margin: 0;
-    padding: 0;
-}
-
-.preview-content-col {
-    vertical-align: top;
-    border-width: 0;
-    padding: 0 16px 0 0;
-    width: 80%;
-}
-
-.preview-toc-col {
-    vertical-align: top;
-    border-width: 0;
-    padding: 0;
-    width: 20%;
-}
-
-/* Table of Contents / Outline Menu */
+/* Table of Contents (Optional) */
 .toc-container {
-    margin-top: 0;
-    margin-bottom: 16px;
-    padding: 8px 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 14px;
     border-width: 1px;
     border-style: solid;
     border-radius: 6px;
-}
-
-.toc-header-bar {
-    padding-bottom: 6px;
-    margin-bottom: 6px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
 }
 
 .toc-title {
     font-weight: bold;
-    font-size: 11px;
+    font-size: 12px;
     text-transform: uppercase;
-}
-
-.toc-actions {
-    text-align: right;
-    margin-left: 8px;
-}
-
-.toc-action-link {
-    font-size: 10px;
-    font-weight: bold;
-    text-decoration: none;
+    margin-bottom: 6px;
 }
 
 .toc-list {
     margin: 0;
-    padding-left: 10px;
+    padding-left: 12px;
 }
 
 .toc-list li {
     margin-bottom: 3px;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.4;
-}
-
-/* Top Floating Menu Bar */
-.top-menu-bar {
-    margin-top: 0;
-    margin-bottom: 8px;
-    padding: 2px 0;
-    text-align: right;
-}
-
-.top-menu-actions {
-    display: inline;
-}
-
-.top-menu-link {
-    font-size: 11px;
-    font-weight: bold;
-    text-decoration: none;
-    margin-left: 10px;
-}
-
-.menu-dropdown-container {
-    margin-top: 0;
-    margin-bottom: 12px;
-    padding: 8px 12px;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 6px;
 }

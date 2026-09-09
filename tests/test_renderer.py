@@ -86,35 +86,33 @@ class TestHighlighter(unittest.TestCase):
 class TestMarkdownEngine(unittest.TestCase):
     def setUp(self):
         self.engine = MarkdownEngine(
-            options={"toc": True, "allow_html": True, "code_line_numbers": False},
+            options={"toc": False, "allow_html": True, "code_line_numbers": False},
             base_dir=r"C:\test\docs"
         )
 
-    def test_headings_and_toc(self):
+    def test_headings_and_clean_start(self):
         md = "# Heading 1\n\n## Sub Heading\n\nContent here."
         html_out = self.engine.render(md)
         self.assertIn('<h1 id="heading-1" data-line="1">Heading 1</h1>', html_out)
         self.assertIn('<h2 id="sub-heading" data-line="3">Sub Heading</h2>', html_out)
-        self.assertIn('class="top-menu-bar"', html_out)
-        self.assertIn('smp_toggle_menu', html_out)
-        self.assertNotIn('class="menu-dropdown-container"', html_out)
-
-    def test_menu_expanded(self):
-        engine_exp = MarkdownEngine(options={"toc": True, "toc_position": "right", "menu_expanded": True})
-        md = "# Heading 1\n\n## Sub Heading\n\nContent here."
-        html_out = engine_exp.render(md)
-        self.assertIn('class="top-menu-bar"', html_out)
-        self.assertIn('class="menu-dropdown-container"', html_out)
-        self.assertIn('<div class="toc-container">', html_out)
-        self.assertIn('href="#heading-1"', html_out)
-        self.assertIn('href="#sub-heading"', html_out)
+        self.assertNotIn('class="top-menu-bar"', html_out)
+        self.assertNotIn('<div class="toc-container">', html_out)
 
     def test_toc_position_top(self):
         engine_top = MarkdownEngine(options={"toc": True, "toc_position": "top"})
         md = "# Heading 1\n\n## Sub Heading\n\nContent here."
         html_out = engine_top.render(md)
-        self.assertNotIn('class="top-menu-bar"', html_out)
         self.assertIn('<div class="toc-container">', html_out)
+
+    def test_toc_position_bottom(self):
+        engine_bot = MarkdownEngine(options={"toc": True, "toc_position": "bottom"})
+        md = "# Heading 1\n\n## Sub Heading\n\nContent here."
+        html_out = engine_bot.render(md)
+        self.assertIn('<div class="toc-container">', html_out)
+        # Verify content comes before TOC
+        h1_idx = html_out.find('id="heading-1"')
+        toc_idx = html_out.find('class="toc-container"')
+        self.assertLess(h1_idx, toc_idx)
 
     def test_gfm_table(self):
         # 2 columns table renders as <table>

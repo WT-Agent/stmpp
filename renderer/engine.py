@@ -52,32 +52,17 @@ class MarkdownEngine:
         # 2. Parse block elements
         html_blocks = self._parse_blocks(body_text)
 
-        # 3. Build Table of Contents if enabled
+        # 3. Build Table of Contents if explicitly configured
         toc_html = ""
-        toc_pos = self.options.get("toc_position", "right")
+        toc_pos = self.options.get("toc_position", "none")
         has_headings = len(self.headings) > 1
 
-        if self.options.get("toc", True) and has_headings and toc_pos != "none":
+        if self.options.get("toc", False) and has_headings and toc_pos in ("top", "bottom"):
             toc_html = self._build_toc_html()
 
-        # 4. Assemble final document with line alignment
+        # 4. Assemble final document (pure content starting from line 1 for absolute row alignment)
         blocks_html = "\n".join(html_blocks)
-        menu_expanded = self.options.get("menu_expanded", False)
-        if toc_pos == "right" and has_headings:
-            expand_icon = "▲" if menu_expanded else "▼"
-            expand_title = "点击折叠大纲目录" if menu_expanded else "点击展开大纲目录"
-            top_menu = (
-                '<div class="top-menu-bar" style="text-align: right;">'
-                '<span class="top-menu-actions">'
-                f'<a class="top-menu-link" href="subl:smp_toggle_menu" title="{expand_title}">[Outline 目录 {expand_icon}]</a> '
-                '<a class="top-menu-link" href="subl:smp_copy_all" title="一键复制全文 Markdown">[复制全文]</a> '
-                '<a class="top-menu-link" href="subl:smp_export_html" title="导出独立 HTML 文件">[导出 HTML]</a>'
-                '</span>'
-                '</div>'
-            )
-            dropdown_html = f'<div class="menu-dropdown-container">{toc_html}</div>\n' if menu_expanded else ""
-            content_body = f"{top_menu}\n{dropdown_html}{blocks_html}"
-        elif toc_pos == "top" and toc_html:
+        if toc_pos == "top" and toc_html:
             content_body = f"{toc_html}\n{blocks_html}"
         elif toc_pos == "bottom" and toc_html:
             content_body = f"{blocks_html}\n{toc_html}"
