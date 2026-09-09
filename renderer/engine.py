@@ -155,6 +155,10 @@ class MarkdownEngine:
             if p_lines:
                 p_text = " ".join(p_lines)
                 blocks.append(f"<p>{self._parse_inlines(p_text)}</p>")
+            elif i < n:
+                # If current line is a block starter but wasn't consumed above, advance i
+                blocks.append(f"<p>{self._parse_inlines(lines[i].strip())}</p>")
+                i += 1
 
         return blocks
 
@@ -169,8 +173,6 @@ class MarkdownEngine:
         if self.HEADING_PATTERN.match(line):
             return True
         if s.startswith(">"):
-            return True
-        if s.startswith("|") and s.endswith("|"):
             return True
         if self.TASK_LIST_PATTERN.match(line) or self.UNORDERED_LIST_PATTERN.match(line) or self.ORDERED_LIST_PATTERN.match(line):
             return True
