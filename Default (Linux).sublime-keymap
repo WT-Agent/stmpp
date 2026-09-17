@@ -1,0 +1,16 @@
+[
+    {
+        "keys": ["ctrl+shift+m"],
+        "command": "smp_toggle_preview",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "text.html.markdown" }
+        ]
+    },
+    {
+        "keys": ["ctrl+shift+alt+m"],
+        "command": "smp_refresh_preview",
+        "context": [
+            { "key": "selector", "operator": "equal", "operand": "text.html.markdown" }
+        ]
+    }
+]
