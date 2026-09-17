@@ -35,29 +35,15 @@ __all__ = [
 class SmpEventListener(sublime_plugin.EventListener):
     """Listens for editor modifications and lifecycle events to trigger preview updates."""
 
-    def on_modified(self, view: sublime.View):
-        manager = PreviewManager.get_instance()
-        if manager.has_session(view.id()):
-            manager.schedule_render(view)
-
     def on_modified_async(self, view: sublime.View):
         manager = PreviewManager.get_instance()
         if manager.has_session(view.id()):
             manager.schedule_render(view)
 
-    def on_post_save(self, view: sublime.View):
-        manager = PreviewManager.get_instance()
-        if manager.has_session(view.id()):
-            manager.render_view(view, force=True)
-
     def on_post_save_async(self, view: sublime.View):
         manager = PreviewManager.get_instance()
         if manager.has_session(view.id()):
             manager.render_view(view, force=True)
-
-    def on_activated(self, view: sublime.View):
-        manager = PreviewManager.get_instance()
-        manager.on_view_activated(view)
 
     def on_activated_async(self, view: sublime.View):
         manager = PreviewManager.get_instance()
