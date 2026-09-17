@@ -1,0 +1,10 @@
+Sublime Markdown Preview v1.0.0 Release Notes
+=============================================
+
+- Initial official release for Sublime Text 4 (Build 4050+).
+- High-performance GFM rendering engine with Pygments/regex dual fallback.
+- Native HtmlSheet integration with zero background process overhead.
+- Proportional viewport scroll synchronization between editor and preview.
+- Quick Panel Table of Contents navigation (smp_open_toc).
+- Standalone HTML export with inlined CSS (smp_export_html).
+- Cross-platform keymap support for Windows, macOS, and Linux.

@@ -1,0 +1,26 @@
+Sublime Markdown Preview (stmpp)
+================================
+
+Thank you for installing Sublime Markdown Preview!
+
+Sublime Markdown Preview provides lightweight, native split-view Markdown
+previewing directly inside Sublime Text 4 using minihtml (HtmlSheet), without
+external browsers, Node.js, or Electron overhead.
+
+Key Features:
+- Native 50/50 side-by-side preview with layout auto-recovery
+- Proportional viewport scroll synchronization
+- Full GitHub Flavored Markdown (GFM) with syntax highlighting
+- Responsive table-to-card fallback for dense multi-column tables
+- Document Table of Contents navigation via Quick Panel
+- Offline static HTML export
+
+Quick Start:
+- Toggle Preview:
+    Windows / Linux: Ctrl+Shift+M
+    macOS:           Super+Shift+M
+- Force Refresh:
+    Windows / Linux: Ctrl+Shift+Alt+M
+    macOS:           Super+Shift+Alt+M
+- Command Palette:
+    Press Ctrl+Shift+P (or Cmd+Shift+P) and type "Markdown Preview"

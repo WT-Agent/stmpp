@@ -18,8 +18,9 @@
   - 引用块、删除线、行内代码
 - **本地图片与路径解析**：兼容 Windows 反斜杠、盘符及相对路径（`./img.png`、`../assets/`）。
 - **防抖实时刷新**：输入默认 200ms 防抖，100KB 文件渲染速度在 50~80ms，杜绝卡顿。
+- **视口比例同步滚动**：依据编辑器当前视口滚动与光标位置，实时计算并对齐预览窗垂直像素坐标。
 - **主题智能自适应**：自动跟随 Sublime Text 主题明暗模式，亦可手动指定 Light / Dark。
-- **目录导航与 HTML 导出**：自动生成 Table of Contents 锚点导航，支持一键将 Markdown 导出为独立 HTML 文件。
+- **目录导航与 HTML 导出**：支持 Quick Panel 模糊搜索跳转章节，支持一键将 Markdown 导出为独立 HTML 文件。
 
 ---
 
@@ -41,6 +42,7 @@
 - `Markdown Preview: Open Preview`
 - `Markdown Preview: Refresh`
 - `Markdown Preview: Close Preview`
+- `Markdown Preview: Open TOC`
 - `Markdown Preview: Export HTML`
 
 ---
@@ -80,15 +82,18 @@
 
 ```text
 stmpp/
-  ├── plugin.py                     # 插件主入口与 EventListener
-  ├── commands/                     # 命令集实现 (Open, Close, Refresh, Toggle, Export)
-  ├── renderer/                     # 纯 Python GFM 解析、代码高亮、路径解析与安全过滤
-  ├── preview/                      # HtmlSheet 视图管理、双栏布局与滚动锚点同步
-  ├── assets/                       # 基础与主题样式表 (preview.css, theme_light.css, theme_dark.css)
-  ├── settings/                     # 默认配置定义
-  ├── tests/                        # 单元测试与基准性能套件
-  ├── Default.sublime-commands      # 命令面板映射
-  ├── Default (Windows).sublime-keymap # 快捷键映射
-  ├── Default (OSX).sublime-keymap     # macOS 快捷键映射
-  └── Main.sublime-menu             # 菜单栏注册项
+  ├── plugin.py                         # 插件主入口与异步事件监听
+  ├── commands/                         # 命令集实现 (Open, Close, Refresh, Toggle, TOC, Export)
+  ├── renderer/                         # 纯 Python GFM 解析、代码高亮、路径解析与安全过滤
+  ├── preview/                          # HtmlSheet 视图管理、双栏布局与视口比例同步
+  ├── assets/                           # 基础与主题样式表 (preview.css, theme_light.css, theme_dark.css)
+  ├── messages/                         # Package Control 安装与版本发布说明
+  ├── tests/                            # 单元测试与基准性能套件
+  ├── SublimeMarkdownPreview.sublime-settings # 核心配置文件
+  ├── Default.sublime-commands          # 命令面板映射
+  ├── Default (Windows).sublime-keymap  # Windows 快捷键映射
+  ├── Default (OSX).sublime-keymap      # macOS 快捷键映射
+  ├── Default (Linux).sublime-keymap    # Linux 快捷键映射
+  ├── messages.json                     # Package Control 版本发布映射
+  └── Main.sublime-menu                 # 菜单栏注册项
 ```
