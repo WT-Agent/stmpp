@@ -6,6 +6,7 @@ import sublime
 from typing import Dict, Optional, Any
 from ..renderer.engine import MarkdownEngine
 from .layout import LayoutManager
+from .sync import ScrollSynchronizer
 
 
 class PreviewSession:
@@ -219,11 +220,32 @@ class PreviewManager:
         # Update sheet content on main thread
         try:
             session.sheet.set_contents(html_out)
+            if settings.get("sync_scroll", True):
+                ScrollSynchronizer.sync_editor_to_preview(view, session.sheet, animate=False)
         except Exception as e:
             import traceback
             err_msg = f"[SublimeMarkdownPreview] Render error: {e}\n{traceback.format_exc()}"
             print(err_msg)
             sublime.status_message(f"Markdown Preview Render Error: {e}")
+
+    def sync_scroll(self, view: sublime.View, animate: bool = False):
+        """Synchronize the scroll position of the preview sheet with the editor view."""
+        if not view or not view.is_valid():
+            return
+
+        settings = self._load_settings()
+        if not settings.get("sync_scroll", True):
+            return
+
+        window = view.window() or (sublime.active_window() if sublime else None)
+        if not window:
+            return
+
+        session = self.get_session(window.id())
+        if not session or not session.sheet:
+            return
+
+        ScrollSynchronizer.sync_editor_to_preview(view, session.sheet, animate=animate)
 
     def on_view_activated(self, view: sublime.View):
         if not view or not view.is_valid():

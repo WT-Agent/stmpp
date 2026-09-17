@@ -49,6 +49,11 @@ class SmpEventListener(sublime_plugin.EventListener):
         manager = PreviewManager.get_instance()
         manager.on_view_activated(view)
 
+    def on_selection_modified_async(self, view: sublime.View):
+        manager = PreviewManager.get_instance()
+        if manager.has_session(view.id()):
+            manager.sync_scroll(view)
+
     def on_close(self, view: sublime.View):
         manager = PreviewManager.get_instance()
         manager.on_view_closed(view)
