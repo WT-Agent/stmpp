@@ -28,12 +28,12 @@
 
 | 操作 | Windows / Linux | macOS |
 | :--- | :--- | :--- | 
-| **开关预览 (Toggle Preview)** | `Ctrl + Shift + M` | `Super + Shift + M` |
-| **强制刷新 (Refresh Preview)** | `Ctrl + Shift + Alt + M` | `Super + Shift + Alt + M` |
+| **开关预览** | `Ctrl + Shift + M` | `Super + Shift + M` |
+| **强制刷新** | `Ctrl + Shift + Alt + M` | `Super + Shift + Alt + M` |
 
 ---
 
-## 命令面板 (Command Palette)
+## 命令面板
 
 按 `Ctrl+Shift+P` (或 macOS `Cmd+Shift+P`) 输入：
 
